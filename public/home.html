@@ -8,8 +8,6 @@
 		<!--link to bulma library-->
 		<link type="text/css" rel="stylesheet" href="/lib/bulma.css">
 		<!-- <link rel="stylesheet" type="text/css" href="/css/index.css"> -->
-    <!-- LINK TO FIREBASE GOES HERE -->
-    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 	</head>
 <body>
 	<!-- 	Main page header 	-->
@@ -24,18 +22,14 @@
 	<div class="container everything">
 		<div class="main-buttons columns is-fullwidth">
 			<div class="column is-12">
-        <div class="field">
-					<p>What is your name?</p>
-					<p class="control">
-					<input class="input" id="user-name" type="text" placeholder="e.g. Bobby McScrooge">
-					</p>
-				</div>
-				<button class="button is-medium index-button" id = "submit-name">Submit</button>
+				<button class="button is-medium index-button" id = "create-channel">Create Channel</button>
+				<br>
+				<br>
+				<button class="button is-medium index-button" id = "join-channel">Join Channel</button>
 			</div>
 		</div>
 	</div>
 	<!--link to messge.js-->
-  <script type="text/javascript" src="/javascript/config.js"></script>
 	<script type="text/javascript" src="/javascript/message.js"></script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+{
+  "name": "slack-app",
+  "version": "1.0.0",
+  "description": "A simple copy of the app Slack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjwall/Slack-App.git"
+  },
+  "keywords": [
+    "slack",
+    "messaging",
+    "app"
+  ],
+  "author": "Jacob Wallace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjwall/Slack-App/issues"
+  },
+  "homepage": "https://github.com/jjwall/Slack-App#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongojs": "^2.4.0",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7",
+    "plist": "^2.1.0"
+  }
+}
