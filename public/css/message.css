@@ -1,0 +1,8 @@
+#recentMessages {
+  height: 400px;
+  width: 600px;
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  overflow-y: scroll;
+}
