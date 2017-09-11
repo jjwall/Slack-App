@@ -1,4 +1,5 @@
 // Dependencies
+var dotenv = require('dotenv').config();
 var express = require("express");
 var mongojs = require("mongojs");
 var bodyParser = require("body-parser");
@@ -7,6 +8,13 @@ var logger = require("morgan");
 
 var app = express();
 var PORT = process.env.PORT || 8080;
+
+// var herokuConfig = {
+//   apiKey: process.env.apiKey,
+//   authDomain: process.env.authDomain,
+//   databaseURL: process.env.databaseURL,
+//   storageBucket: process.env.storageBucket
+// };
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -30,26 +38,34 @@ app.use(express.static("./public"));
 
 // Routes
 require("./routes/html-routes.js")(app);
+// var devConfig = require("./public/javascript/config.js");
+// console.log(devConfig.apiKey);
+
+// var configFb = devConfig || herokuConfig;
+//
+// var app = firebase.initializeApp(configFb);
+//
+// var database = firebase.database();
 //require("./routes/signs-api-routes.js")(app);
 
 // API POST / GET calls (only need 1 post, and 1 get I think)
 
 // Handle sign data submission, save submission to mongo
-app.post("/api/signs", function(req, res) {
-	console.log(req.body);
-	// Insert the sign into the signs collection
-	db.signs.insert(req.body, function(error, saved) {
-		// Log any errors
-		if (error) {
-			console.log(error);
-		}
-		// Otherwise, send the sign back to the browser
-		// This will fire off the success function of the ajax request
-		else {
-			res.send(saved);
-		}
-	});
-});
+// app.post("/api/signs", function(req, res) {
+// 	console.log(req.body);
+// 	// Insert the sign into the signs collection
+// 	db.signs.insert(req.body, function(error, saved) {
+// 		// Log any errors
+// 		if (error) {
+// 			console.log(error);
+// 		}
+// 		// Otherwise, send the sign back to the browser
+// 		// This will fire off the success function of the ajax request
+// 		else {
+// 			res.send(saved);
+// 		}
+// 	});
+// });
 
 // Retrieve ALL results from mongo, depending on where client is
 // i.e. View Signs by Date or View Signs by Company Name
