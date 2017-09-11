@@ -14,32 +14,33 @@
 <body>
 	<!-- 	Main page header 	-->
 	<section class="hero is-medium gig-banner">
-		<div class="hero-body">
-			<div class="container">
-				<h1 class="title">Jacob's Slack App</h1>
-			</div>
+		<div class="container">
+			<h1 class="title">Jacob's Slack App</h1>
+			<a href ="https://github.com/jjwall/Slack-App" class="button is-small" style="width:90px; margin-top: 10px;">
+				<span class="icon">
+					<img src = "media/github1.png" alt = "Slack App GitHub" style = "width:20px; margin-right:5px;">
+				</span><strong>GitHub</strong>
+			</a>
 		</div>
 	</section>
 	<!-- Main page content -->
 	<div class="container everything">
-		<div class="main-buttons columns is-fullwidth">
-			<div class="column is-12">
-        <div class="field" id="nameEnter">
-					<p>What is your name?</p>
-					<p class="control">
-					  <input class="input" id="user-name" type="text" placeholder="e.g. Bobby McScrooge">
-					</p>
-          <button class="button is-medium index-button" id = "submit-name">Submit</button>
-				</div>
-        <div id="messageEnvironment">
-					<p>General Thread</p>
-					<div id="recentMessages"></div>
-          <p class="control">
-					  <input class="input" id="messageInput" type="text" style="width:600px;">
-					</p>
-          <button class="button is-medium index-button" id = "submit-message">Submit</button>
-        </div>
+		<div class="column is-12">
+       <div class="field" id="nameEnter">
+				<p>What is your name?</p>
+				<p class="control">
+					 <input class="input" id="user-name" type="text" placeholder="e.g. Bobby McScrooge" style="width:300px;">
+				</p>
+        <button class="button is-medium index-button" id = "submit-name">Submit</button>
 			</div>
+      <div id="messageEnvironment">
+				<p><strong>General Thread</strong></p>
+				<div id="recentMessages"></div>
+        <p class="control">
+					<input class="input" id="messageInput" type="text" placeholder="Message #general" style="width:600px;">
+				</p>
+        <button class="button is-medium index-button" id = "submit-message">Submit</button>
+      </div>
 		</div>
 	</div>
 	<!--link to messge.js-->

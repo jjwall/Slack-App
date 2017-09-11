@@ -15,7 +15,12 @@ $(document).ready(function() {
 
   //messageRef.onDisconnect().remove();
 
-  $("#submit-name").on("click", function(){
+  $("#submit-name").on("click", function(event){
+    event.preventDefault();
+    submitName();
+  });
+
+  function submitName() {
     if ($("#user-name").val() === "")
       alert("Please Enter a Name!");
     else {
@@ -25,19 +30,29 @@ $(document).ready(function() {
       $("#nameEnter").hide();
       $("#messageEnvironment").show();
     }
+  }
+
+  $("#user-name").keyup(function(event){
+    if(event.keyCode == 13){
+        submitName();
+    }
   });
 
   $("#messageInput").keyup(function(event){
     if(event.keyCode == 13){
-        submitThatIsh();
+        submitInput();
     }
   });
 
-  $("#submit-message").on("click", submitThatIsh());
+  $("#submit-message").on("click", function(event){
+    event.preventDefault();
+    submitInput();
+  });
 
-  function submitThatIsh() {
-    if ($("#messageInput").val() === "")
-      alert("You must enter a message to submit a message!");
+  function submitInput() {
+    if ($("#messageInput").val() === ""){
+       // alert("You must enter a message to submit a message!");
+    }
     else {
       messageRef.set({
         message: `${globalName}: ${$("#messageInput").val()}`

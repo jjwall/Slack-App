@@ -1,8 +1,30 @@
+body {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
 #recentMessages {
   height: 400px;
   width: 600px;
+  margin-top: 15px;
   background-color: white;
   border-style: solid;
   border-color: black;
   overflow-y: scroll;
+}
+
+#messageInput {
+  margin-top: 15px;
+}
+
+#submit-message {
+  margin-top: 15px;
+}
+
+#user-name {
+   margin-top: 15px;
+}
+
+#submit-name {
+  margin-top: 15px;
 }
