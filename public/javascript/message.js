@@ -13,6 +13,10 @@ $(document).ready(function() {
 
   var globalName;
 
+  $("#recentMessages").empty();
+
+  $("#recentMessages").prepend('<em>Welcome to the message space!</em>');
+
   //messageRef.onDisconnect().remove();
 
   $("#submit-name").on("click", function(event){
@@ -62,9 +66,9 @@ $(document).ready(function() {
     }
   }
 
-messageRef.on("value", function(snapshot) {
-  $("#recentMessages").prepend(`<p>${snapshot.val().message}</p>`);
-  //messageRef.onDisconnect().remove();
-});
+  messageRef.on("value", function(snapshot) {
+    $("#recentMessages").prepend(`<p>${snapshot.val().message}</p>`);
+    //messageRef.onDisconnect().remove();
+  });
 
 });
