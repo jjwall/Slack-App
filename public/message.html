@@ -7,7 +7,7 @@
 		<script type = "text/javascript" src="/lib/jquery-3.2.1.min.js"></script>
 		<!--link to bulma library-->
 		<link type="text/css" rel="stylesheet" href="/lib/bulma.css">
-		<!-- <link rel="stylesheet" type="text/css" href="/css/index.css"> -->
+		<link rel="stylesheet" type="text/css" href="/css/message.css">
     <!-- LINK TO FIREBASE GOES HERE -->
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 	</head>
@@ -24,13 +24,21 @@
 	<div class="container everything">
 		<div class="main-buttons columns is-fullwidth">
 			<div class="column is-12">
-        <div class="field">
+        <div class="field" id="nameEnter">
 					<p>What is your name?</p>
 					<p class="control">
-					<input class="input" id="user-name" type="text" placeholder="e.g. Bobby McScrooge">
+					  <input class="input" id="user-name" type="text" placeholder="e.g. Bobby McScrooge">
 					</p>
+          <button class="button is-medium index-button" id = "submit-name">Submit</button>
 				</div>
-				<button class="button is-medium index-button" id = "submit-name">Submit</button>
+        <div id="messageEnvironment">
+					<p>General Thread</p>
+					<div id="recentMessages"></div>
+          <p class="control">
+					  <input class="input" id="messageInput" type="text" style="width:600px;">
+					</p>
+          <button class="button is-medium index-button" id = "submit-message">Submit</button>
+        </div>
 			</div>
 		</div>
 	</div>
