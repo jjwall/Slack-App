@@ -8,7 +8,8 @@ $(document).ready(function() {
 
   var database = firebase.database();
 
-  var messageRef = database.ref("messages");
+  //console.log(window.location.href);
+  var messageRef = database.ref(window.location.href);
   //messages will be equivalent to channell reference i.e. b4LqRz
 
   var globalName;

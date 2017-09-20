@@ -4,16 +4,20 @@ var path = require("path");
 // =============================================================
 module.exports = function(app) {
 
+	var testDatabase = ["test1", "test2", "test3"];
+
 	app.get("/", function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/message.html"));
+		res.sendFile(path.join(__dirname, "../public/home.html"));
 	});
 
-	// app.get("/post-sign", function(req, res) {
-	// 	res.sendFile(path.join(__dirname, "../public/postsign.html"))
-	// })
-	//
-	// app.get("/sign-date", function(req, res) {
-	// 	res.sendFile(path.join(__dirname, "../public/signdate.html"))
-	// })
+	for (var i = 0; i < testDatabase.length; i++) {
+		app.get(`/${testDatabase[i]}`, function(req, res) {
+			res.sendFile(path.join(__dirname, "../public/message.html"));
+		});
+	}
+
+	app.get("*", function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/error.html"));
+	});
 
 };

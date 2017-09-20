@@ -7,14 +7,37 @@
 		<script type = "text/javascript" src="/lib/jquery-3.2.1.min.js"></script>
 		<!--link to bulma library-->
 		<link type="text/css" rel="stylesheet" href="/lib/bulma.css">
-		<!-- <link rel="stylesheet" type="text/css" href="/css/index.css"> -->
+		<link rel="stylesheet" type="text/css" href="/css/message.css">
+    <!-- LINK TO FIREBASE GOES HERE -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 	</head>
 <body>
 	<!-- 	Main page header 	-->
 	<section class="hero is-medium gig-banner">
-		<div class="hero-body">
-			<div class="container">
-				<h1 class="title">Jacob's Slack App</h1>
+		<div class="container">
+			<h1 class="title"><strong>Jacob's Slack App</strong> made for <a href="https://sumo.com/" alt="Sumo"><img src="media/sumo-logo.png" alt="Firebase" style="width:150px;"></a></h1>
+			<div class="columns">
+				<div class ="column is-one-third">
+					<div class="content has-text-centered">
+						<p>Check out the GitHub!</p>
+						<div style="margin-top:45px; margin-bottom:25px;">
+							<a href ="https://github.com/jjwall/Slack-App" alt="GitHub" style="width:90px;"><img src = "media/github1.png" alt = "Slack App GitHub" style = "width:30px; margin-right:8px; margin-bottom:-6px;"><strong style="font-size:25px">GitHub</strong></a>
+						</div>
+					</div>
+				</div>
+				<div class="column is-one-third">
+					<div class="content has-text-centered">
+						<p>Realtime database!</p>
+						<a href="https://firebase.google.com/"><img src="media/firebase-logo.jpg" alt="Firebase" style="width:175px;"></a>
+					</div>
+				</div>
+				<div class="column is-one-third">
+					<div class="content has-text-centered">
+						<p>CSS Framework!</p>
+			 		<!-- <div class="content has-text-centered"> -->
+				 		<a href="http://bulma.io/"><img src="media/bulma-logo.png" alt="Bulma.io" style="width:120px; margin-top:30px; margin-bottom:25px;"></a>
+					</div>
+		 		</div>
 			</div>
 		</div>
 	</section>
@@ -29,7 +52,28 @@
 			</div>
 		</div>
 	</div>
+	<!-- modal -->
+	<div class="modal" id="joinModal">
+		<div class="modal-background"></div>
+		<div class="modal-card">
+			<div class="modal-content">
+				<div class="modal-card-head">
+					<h5 class="modal-card-title">Enter Channel Id</h5>
+				</div>
+				<div class="modal-card-body">
+					<p class="control">
+						 <input class="input" id="id-key" type="text" placeholder="XXXXX" style="width:300px;">
+					</p>
+					<button class="button is-medium index-button" id = "submit-join">Submit</button>
+				</div>
+				<div class="modal-card-foot">
+					<button class="button is-dark closeModal">Close</button>
+					<!-- <button type="button" class="btn btn-primary">Accept!</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
 	<!--link to messge.js-->
-	<script type="text/javascript" src="/javascript/message.js"></script>
+	<script type="text/javascript" src="/javascript/home.js"></script>
 </body>
 </html>
