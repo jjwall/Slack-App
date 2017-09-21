@@ -5,6 +5,7 @@ var mongojs = require("mongojs");
 var bodyParser = require("body-parser");
 var path = require("path");
 var logger = require("morgan");
+var dbKeys = [];
 
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -67,25 +68,61 @@ app.post("/api/messageSpaces", function(req, res) {
 	});
 });
 
-// Retrieve ALL results from mongo, depending on where client is
-// i.e. View Signs by Date or View Signs by Company Name
-// client side code should be able to filter results
-// app.get("/api/all", function(req, res) {
-//   // Find all notes in the notes collection
-//   db.signs.find({}, function(error, found) {
-//     // Log any errors
-//     if (error) {
-//       console.log(error);
-//     }
-//     else {
-//       res.json(found);
-//     }
-//   });
-// });
+// Retrieve ALL results from mongo
+app.get("/api/all", function(req, res) {
+  // Find all notes in the notes collection
+  db.messageSpaces.find({}, function(error, found) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    else {
+      res.json(found);
+    }
+  });
+});
 
-//console.log(GMAPIKey);
+// db.messageSpaces.find({}, {"_id": 0, "name": 0}, function(error, data) {
+// 	if (error) {
+//     console.log(error);
+//   }
+//   else {
+// 		for (var i = 0; i < data.length; i++) {
+//     	console.log(data[i].key);
+// 			app.get(`/${data[i].key}`, function(req, res) {
+// 				res.sendFile(path.join(__dirname, "public/message.html"));
+// 			});
+// 		}
+//   }
+// });
+console.log(dbKeys);
+
+function doThisPlease() {
+	db.messageSpaces.find({}, {"_id": 0, "name": 0}, function(error, data) {
+		if (error) {
+	    console.log(error);
+	  }
+	  else {
+			for (var i = 0; i < data.length; i++) {
+	    	//console.log(data[i].key);
+				dbKeys.push(data[i].key);
+			}
+			//console.log(dbKeys);
+			//loadChannels();
+	  }
+	});
+}
+
+app.on("listening", function(){
+	doThisPlease();
+	setTimeout(function(){ console.log(dbKeys); }, 3000);
+	console.log(dbKeys);
+})
+
+//console.log(dbKeys);
 
 // Start express app
 app.listen(PORT, function() {
 	console.log(`app listening on port ${PORT}`);
+	//console.log(dbKeys)
 });

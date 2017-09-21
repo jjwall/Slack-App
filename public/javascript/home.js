@@ -57,7 +57,7 @@ $(document).ready(function() {
 				}
 			}).done(function(data) {
         console.log("it is done");
-        keyId = ""
+        keyId = "";
         /// should be getJSON to this new channel
       });
     });
