@@ -8,8 +8,6 @@
 		<!--link to bulma library-->
 		<link type="text/css" rel="stylesheet" href="/lib/bulma.css">
 		<link rel="stylesheet" type="text/css" href="/css/message.css">
-    <!-- LINK TO FIREBASE GOES HERE -->
-    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 	</head>
 <body>
 	<!-- 	Main page header 	-->
@@ -52,7 +50,28 @@
 			</div>
 		</div>
 	</div>
-	<!-- modal -->
+	<!-- create modal -->
+	<div class="modal" id="createModal">
+		<div class="modal-background"></div>
+		<div class="modal-card">
+			<div class="modal-content">
+				<div class="modal-card-head">
+					<h5 class="modal-card-title">Create Channel</h5>
+				</div>
+				<div class="modal-card-body">
+					<p class="control">
+						 <input class="input" id="channelName" type="text" placeholder="e.g. The Chat Room" style="width:300px;">
+					</p>
+					<button class="button is-medium index-button" id = "submit-create">Submit</button>
+				</div>
+				<div class="modal-card-foot">
+					<button class="button is-dark closeModal2">Close</button>
+					<!-- <button type="button" class="btn btn-primary">Accept!</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- join modal -->
 	<div class="modal" id="joinModal">
 		<div class="modal-background"></div>
 		<div class="modal-card">
@@ -67,7 +86,7 @@
 					<button class="button is-medium index-button" id = "submit-join">Submit</button>
 				</div>
 				<div class="modal-card-foot">
-					<button class="button is-dark closeModal">Close</button>
+					<button class="button is-dark closeModal1">Close</button>
 					<!-- <button type="button" class="btn btn-primary">Accept!</button> -->
 				</div>
 			</div>

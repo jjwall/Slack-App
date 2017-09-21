@@ -70,6 +70,7 @@ $(document).ready(function() {
   messageRef.on("value", function(snapshot) {
     $("#recentMessages").prepend(`<p>${snapshot.val().message}</p>`);
     //messageRef.onDisconnect().remove();
+    //$.ajax({})
   });
 
 });
