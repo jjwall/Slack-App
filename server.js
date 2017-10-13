@@ -38,7 +38,7 @@ var collections = ["messageSpaces"];
 var db = mongojs(databaseUrl, collections);
 
 // Routes
-require("./routes/html-routes.js")(app);
+// require("./routes/html-routes.js")(app);
 // var devConfig = require("./public/javascript/config.js");
 // console.log(devConfig.apiKey);
 
@@ -47,9 +47,44 @@ require("./routes/html-routes.js")(app);
 // var app = firebase.initializeApp(configFb);
 //
 // var database = firebase.database();
-//require("./routes/signs-api-routes.js")(app);
 
-// API POST / GET calls (only need 1 post, and 1 get I think)
+function loadSpace(req, res, next) {
+	//console.log("key equals: " + req.params.key);
+	//console.log("hey there good lookin");
+	if (req.params.key) {
+		db.messageSpaces.findOne({}, {"_id": 0, "name": 0}, function(error, data) {
+			if (error) {
+	    	console.log(error);
+				next(new Error("Couldn't find message space: " + error));
+				return;
+	  	}
+	  	else {
+				// req.key = key;
+				// next();
+				console.log("YOU DID IT!!!");
+				// for (var i = 0; i < data.length; i++) {
+		    // 	//console.log(data[i].key);
+				// 	dbKeys.push(data[i].key);
+				// }
+				//console.log(dbKeys);
+				//loadChannels();
+	  	}
+		});
+	}
+}
+
+app.get("/", function(req, res) {
+	res.sendFile(path.join(__dirname, "/public/home.html"));
+});
+
+app.get("/messagespace/:key", loadSpace, function(req, res) {
+	res.sendFile(path.join(__dirname, "/public/message.html"));
+	console.log(req.params);
+});
+
+app.get("/error", function(req, res) {
+	res.sendFile(path.join(__dirname, "/public/error.html"));
+});
 
 //Handle sign data submission, save submission to mongo
 app.post("/api/messageSpaces", function(req, res) {
@@ -95,6 +130,7 @@ app.get("/api/all", function(req, res) {
 // 		}
 //   }
 // });
+
 console.log(dbKeys);
 
 function doThisPlease() {
