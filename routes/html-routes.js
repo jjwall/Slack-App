@@ -46,9 +46,13 @@ module.exports = function(app) {
 
 	app.get("/messagespace/:key", function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/message.html"));
-	})
+	});
 
-	app.get("*", function(req, res) {
+	// app.get("/messagespace/*", function(req, res) {
+	// 	next();
+	// });
+
+	app.get("/error", function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/error.html"));
 	});
 

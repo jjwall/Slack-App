@@ -1,14 +1,7 @@
 $(document).ready(function() {
 
   var keyId = "";
-
-  // function getResults() {
-  //   console.log("hi");
-  // $.get("/api/all/", function(data) {
-  //   console.log(data);
-  //   console.log("hi");
-  // });
-  // }
+  var messageSpaceKeys = [];
 
   $(".closeModal1").click(function(){
 	   $("#joinModal").fadeToggle("fast", "linear");
@@ -24,6 +17,12 @@ $(document).ready(function() {
    $("#join-channel").click(function(){
  	   $("#joinModal").fadeToggle("fast", "linear");
      $("#id-key").val("");
+     $.getJSON("/api/all", function(data) {
+       for (var i = 0; i < data.length; i++) {
+         messageSpaceKeys.push(data[i].key);
+         console.log(data[i].key);
+       }
+     });
    });
 
    $("#create-channel").click(function(){
@@ -35,22 +34,14 @@ $(document).ready(function() {
 
    $("#submit-join").click(function(){
      event.preventDefault();
-     // not sure why this isnt working
-     // something to do with server
-     //
-     $.getJSON("/api/all/", function(data) {
-       console.log(data);
-       console.log("hi");
-     });
-    //  $.ajax({
-    //    type: "GET",
-    //    dataType: 'json',
-    //    url: "/api/all"
-    //  }).done(function(data){
-    //    console.log(data);
-    //  });
-	 	 //window.location.href = "/messagespace/" + $("#id-key").val();
+     if (messageSpaceKeys.includes($("#id-key").val())) {
+       window.location.href = "/messagespace/" + $("#id-key").val();
+     }
+     else {
+       window.location.href = "/error";
+     }
      $("#id-key").val("");
+     messageSpaceKeys = [];
    });
 
    function makeid() {
