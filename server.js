@@ -113,14 +113,6 @@ function doThisPlease() {
 	});
 }
 
-app.on("listening", function(){
-	doThisPlease();
-	setTimeout(function(){ console.log(dbKeys); }, 3000);
-	console.log(dbKeys);
-})
-
-//console.log(dbKeys);
-
 // Start express app
 app.listen(PORT, function() {
 	console.log(`app listening on port ${PORT}`);
