@@ -53,6 +53,11 @@ $(document).ready(function() {
 
    $("#submit-create").click(function(){
      //event.preventDefault();
+     var public;
+     if ($("#publicPrivate").is(":checked"))
+      public = true;
+     else
+      public = false;
      $.ajax({
 				type: "POST",
 				dataType: 'json',
@@ -60,7 +65,7 @@ $(document).ready(function() {
 				data: {
 					name: $("#channelName").val(),
           key: keyId,
-          messages: []
+          public: public
 				},
 				success: function (output) {
 					console.log(output);
