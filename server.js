@@ -77,7 +77,7 @@ app.get("/", function(req, res) {
 	res.sendFile(path.join(__dirname, "/public/home.html"));
 });
 
-app.get("/messagespace/:key", loadSpace, function(req, res) {
+app.get("/messagespace/:key", function(req, res) {
 	res.sendFile(path.join(__dirname, "/public/message.html"));
 	console.log(req.params);
 });
