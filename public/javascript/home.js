@@ -65,7 +65,8 @@ $(document).ready(function() {
 				data: {
 					name: $("#channelName").val(),
           key: keyId,
-          public: public
+          public: public,
+          messages: [""]
 				},
 				success: function (output) {
 					console.log(output);

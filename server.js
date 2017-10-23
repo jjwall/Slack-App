@@ -85,6 +85,19 @@ app.post("/api/messageSpaces", function(req, res) {
 	});
 });
 
+app.put("/api/messageSpaces/:key", function(req, res) {
+	console.log(req.params);
+	//var message = req.params.messages[0];
+	// update message array to corresponding key
+	db.messageSpaces.update({"key": req.params.key},
+	{$push: {
+		messages:
+			req.body
+
+		}
+	})
+});
+
 // Retrieve ALL results from mongo
 app.get("/api/all", function(req, res) {
   // Find all notes in the notes collection

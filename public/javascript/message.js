@@ -8,9 +8,18 @@ $(document).ready(function() {
 
   var database = firebase.database();
 
-  //console.log(window.location.href);
   var messageRef = database.ref(window.location.href);
-  //messages will be equivalent to channell reference i.e. b4LqRz
+
+  var key;
+
+  if (window.location.href.substring(7,8) === "l") {
+    key = window.location.href.substring(35,40);
+    console.log(key);
+  }
+  else if (window.location.href.substring(7,8) === "j") {
+    key = window.location.href.substring(46,51);
+  }
+  // ^ all this is to get key from window.location.href b/c we'll need it to update mongo will messages
 
   var globalName;
 
@@ -69,6 +78,13 @@ $(document).ready(function() {
 
   messageRef.on("value", function(snapshot) {
     $("#recentMessages").prepend(`<p>${snapshot.val().message}</p>`);
+    console.log(snapshot.val().message);
+    $.ajax({
+        url: `/api/messageSpaces/${key}`,
+        type: 'PUT',
+        dataType: 'json',
+        data: snapshot.val().message
+    });
     //messageRef.onDisconnect().remove();
     //$.ajax({})
   });
